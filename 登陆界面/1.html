@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎你的到来</title>
+    <style>
+        body {
+            background-color: rgba(255, 255, 255, 0.5);
+            font-family: "微软雅黑";
+            background-image: url('tk.jpg');
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        button.an {
+            position: absolute;
+            border-radius: 10px;
+            width: 70px;
+            height: 50px;
+        }
+
+        input.syk {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            width: 250px;
+            height: 40px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        div#login {
+            background-color: rgba(0, 0, 139, 0.7);
+            height: 400px;
+            width: 600px;
+            position: absolute;
+            left: 15%;
+            top: 10%;
+            border-radius: 20px;
+            border-style: solid;
+            border-color: white;
+        }
+
+        div#tx {
+            border-radius: 10px;
+            opacity: 1;
+            background-image: url('tx.png');
+            background-size: cover;
+            height: 130px;
+            width: 130px;
+            position: absolute;
+            /* 开启定位 */
+            top: 100px;
+            left: 50px;
+        }
+
+        h1#hy {
+            text-align: center;
+        }
+
+        input#user {
+            top: 110px;
+            left: 200px;
+        }
+
+        input#mima {
+            top: 180px;
+            left: 200px;
+        }
+
+        button#denglu {
+            background-color: rgba(255, 255, 255, 0.3);
+            top: 250px;
+            left: 200px;
+        }
+
+        button#zhuce {
+            background-color: rgba(255, 255, 255, 0.3);
+            top: 250px;
+            left: 350px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login">
+        <h1 id="hy">欢迎来到XiaoV的赛博宅基地</h1>
+        <div id="tx"></div>
+        <form action="55.html" ID="ok">
+            <input type="text" ID="user" placeholder="请输入用户名" class="syk">
+            <br>
+            <br>
+            <input type="password" ID="mima" placeholder="请输入密码" class="syk">
+            <div id="btns">
+                <button type="button" class="an" id="denglu">登录</button>
+                <button type="button" class="an" id="zhuce">注册</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        let denglu = document.querySelector("#denglu");
+        let zhuce = document.querySelector("#zhuce");
+        denglu.addEventListener("click", getidmm);
+        function getidmm() {
+            let id = document.querySelector("#user").value;
+            let mm = document.querySelector("#mima").value;
+            if (id.length < 6 || id.length > 20) {
+                alert("用户名长度必须在6到20位之间");
+                return;
+            }
+            if (mm.length < 6 || mm.length > 20) {
+                alert("密码长度必须在6到20位之间");
+                return;
+            }
+            const usernameRegex = /^\w{6,20}$/;
+            if (!usernameRegex.test(id)) {
+                alert("用户名只能由字母、数字、下划线组成");
+                return
+            }
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,20}$/;
+            if (!passwordRegex.test(mm)) {
+                alert("密码中至少包含一个大写字母、一个小写字母和一个数字");
+                return
+            }
+            document.querySelector("#ok").submit();
+        }
+
+    </script>
+    <footer>
+        © 2025 XiaoV的登陆页面 by ChatGPT && XiaoV，测试版本只支持桌面端，移动端暂未适配，没有技术力。
+    </footer>
+
+</body>
+
+</html>
