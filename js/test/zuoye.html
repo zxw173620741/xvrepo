@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        button {
+            padding: 10px;
+        }
+
+        div.main {
+            margin: auto;
+            width: 640px;
+            height: 480px;
+            background-color: lightpink;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>随机选人</h1>
+        <button id="xyr">
+            随机选一人
+        </button>
+        <button id="xsr">
+            随机选三人
+        </button>
+        <h5 id="da">666</h5>
+    </div>
+    <script>
+        let name = [
+            "王小明", "李小花", "张大力", "刘小雨", "陈小飞",
+            "杨小丽", "赵小刚", "黄小燕", "吴小强", "周小美",
+            "林小杰", "徐小婷", "孙小勇", "马小兰", "朱小峰",
+            "胡小慧", "郭小亮", "何小静", "高小波", "罗小娜",
+            "郑小阳", "梁小雪", "谢小军", "宋小玲", "唐小虎",
+            "许小玉", "韩小松", "冯小梅", "董小海", "崔小月"
+        ];
+        let xuan = [
+            false, false, false, false, false,
+            false, false, false, false, false,
+            false, false, false, false, false,
+            false, false, false, false, false,
+            false, false, false, false, false,
+            false, false, false, false, false
+        ];
+        //选一个人
+        let daan = document.querySelector("#da");
+        function xygr() {
+            let x = Math.floor(Math.random() * name.length);
+            daan.innerHTML = name[x];
+        }
+        document.querySelector("#xyr").addEventListener("click", xygr)
+        function xsgr() {
+            let cs = 0;
+            let c = new Array(3);
+            while (cs < 3) {
+                let x = Math.floor(Math.random() * name.length);
+                if (xuan[x] != true) {
+                    c[cs] = name[x];
+                    cs++;
+                    xuan[x] = true;
+                }
+            }
+            daan.innerHTML = c[0] + "," + c[1] + "," + c[2];
+        }
+        document.querySelector("#xsr").addEventListener("click", xsgr)
+    </script>
+</body>
+
+</html>
